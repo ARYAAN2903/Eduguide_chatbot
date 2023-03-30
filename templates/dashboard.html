@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
     <title>EduGuide</title>
     <link rel="stylesheet" href="/static/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://fontawesome.com/icons/robot?s=solid&f=classic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="body">
+        
         <nav>
             <h2 class="logo">Edu<span>Guide</span><i class="fa-light fa-robot"></i></h2>
             <ul>
                 <li><a href="#" class="active">Home</a></li>
-                <li><a href="#section2">About Us</a></li>
+                <li><a href="#section2">About ChatBot</a></li>
                 <li><a href="#section3">Services</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
+            <div class="register">
+                <input type="submit" value="Login">
+                <input type="submit" value="Register">
+            </div>
             
-            <a type="button" class="but" ><i class="ri-login-box-fill" href="{{ url_for('login') }}"></i>Login</a>
-       
         </nav>
+        <h1>Welcome, {{ name }}!</h1>
         <div class="content">
-            <h2>Confused with your Admission Process?</h2>
+            <img src="/static/Screenshot_2023-02-04_174652.png" alt="">
+            <h1>Confused with your Admission Process?</h1>
             <h3>Don't worry Edu<span>Guide</span> is here to help you.</h3>
             <a type="submit" class="btn" href="{{ url_for('chatbot') }}">Use Chatbot</a>
         </div>
@@ -36,8 +44,11 @@
             <img src="/static/artificial-intelligence-ai-robot-gives-recommendation-human-get-automated-response_39422-770.jpg" alt="">
             <div class="About-text">
                 <h2 id="section2">About Chatbot</h2>
-                <h4>AI automated educational Chatbot to assist students with the Admission Process therby providing important dates for events and a general idea of  various Colleges and their amenities,brochures and fees structure. </h4>
-                <button class="myBtn">Read More</button>
+                <p>AI automated educational Chatbot to assist students with the Admission Process therby providing important dates for events and a general idea of  various Colleges and their amenities,brochures and fees structure. </p>
+                <div class="readmore">
+                    <input type="submit" value="Read More" href="#"></input>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -62,7 +73,7 @@
                 <div class="pra">
                     <p>Track down dates for important Events and Processes</p>
 
-                    <p style="text-align: center;"><a class="button" href="#">Access</a></p>
+                    <p style="text-align: center;"><a href="{{ url_for('calender') }}" class="button">Access</a></p>
                 </div>
             </div>
             <div class="card">
@@ -78,4 +89,6 @@
     </div>
 </body>
 </html>
+
+
 
