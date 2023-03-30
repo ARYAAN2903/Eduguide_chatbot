@@ -1,76 +1,72 @@
-
 *{
     margin: 0;
     padding: 0px;
     font-family: sans-serif;
-}
-
-
-
-
-
-body{
-    
+  }
+  
+  body{
     height: 100vh;
     width: 100%;
-    background-image: url('/static/Screenshot_2023-02-04_174652.png');
+    background-image: url('/static/login-bg.png');
     background-repeat: no-repeat;
-    background-size:1920px 1080px;
-    
-    background-position:20% 50%;
-    
-}
-.avatar{
+    background-color: #000;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .avatar{
     width: 100px;
-
     height: 100px;
     border-radius: 50%;
     position: absolute;
     top: -50px;
     left: calc(50% - 50px);
-}
-.loginbox{
-    width: 520px;
-    height: 350px;
+  }
+  
+  .loginbox{
+    width: 600px; /* increase the width */
+    height: 500px; /* increase the height */
     border-radius: 25px;
-    background: black;
-    opacity: 0.7;
-    
+    background: rgba(0,0,0,0.7);
     color:white;
     top: 50%;
-    left: 20%;
+    left: 50%;
     position: absolute;
     transform: translate(-50%,-50%);
     box-sizing: border-box;
     padding: 70px 30px;
-}
-h1{
+  }
+  
+  h1{
     margin: 0;
     padding: 0 0 20px;
     text-align: center;
-    font-size: 22px;
-}
-.loginbox p{
+    font-size: 32px;
+  }
+  
+  .loginbox p{
     margin: 0;
     padding: 0;
     font-weight: bold;
-
-}
-.loginbox input{
+    font-size:22px ;
+  }
+  
+  .loginbox input{
     width: 100%;
     margin-bottom: 20px;
-
-}
-.loginbox input[type="text"], input[type="password"]{
+  }
+  
+  .loginbox input[type="text"], input[type="password"]{
     border: none;
     border-bottom: 1px solid white;
     background: transparent;
     outline: none;
     height: 40px;
     color: white;
-    font-size: 16px;
-}
-.loginbox input[type="submit"]{
+    font-size: 26px;
+  }
+  
+  .loginbox input[type="submit"]{
     border: none;
     outline: none;
     height: 40px;
@@ -78,18 +74,25 @@ h1{
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
-}
-.loginbox input[type="submit"]:hover{
+  }
+  
+  .loginbox input[type="submit"]:hover{
     cursor: pointer;
     background: #ffc107;
     color: #000;
-}
-.loginbox a{
+  }
+  
+  .loginbox a{
+    display: block; /* add display property */
     text-decoration: none;
-    font-size: 12px;
+    font-size: 22px;
     line-height: 20px;
-    color: darkgray
-}
-.loginbox a:hover{
+    color: darkgray;
+    margin-top: 30px; /* add some margin */
+    text-align: center; /* center the anchor tag */
+  }
+  
+  .loginbox a:hover{
     color: #ffc107;
-}
+  }
+  
