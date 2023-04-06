@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	{% if not user_info %}
+		<h1>You are not currently logged in.</h1>
+		<a href="/google/login">Log in with Google</a>
+	{% else %}
+		<h1>Welcome, {{ user_info['name'] }}!</h1>
+		<p>Email: {{ user_info['email'] }}</p>
+		<a href="/google/logout">Log out</a>
+	{% endif %}
+</body>
+</html>
