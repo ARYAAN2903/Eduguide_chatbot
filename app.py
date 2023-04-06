@@ -5,16 +5,31 @@ from flask import session
 from flask import Flask, render_template, request
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer,ListTrainer
+import functools
+import json
+import os
+import flask
+from authlib.client import OAuth2Session
+import google.oauth2.credentials
+import googleapiclient.discovery
+import google_auth
+import google_drive
 import time
 import nltk
+
 time.clock=time.time
 nltk.download('averaged_perceptron_tagger')
 
 
+app = flask.Flask(__name__)
+app.secret_key = os.environ.get("1234567", default=False)
 
+app.register_blueprint(google_auth.app)
 
-app = Flask(__name__)
-app.secret_key = 'my_secret_key'
+app.register_blueprint(google_drive.app)
+
+# Set a secret key for the Flask application
+app.secret_key = '1234567'
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = '27293003@ary'
@@ -109,6 +124,8 @@ def calender():
     return render_template('calender.html')
 
 
+
+
 bot = ChatBot('EduGuide')
 trainer = ListTrainer(bot)
 
@@ -124,12 +141,27 @@ def get_bot_response():
     if float(bot_response.confidence) > 0.5:
         return str(bot_response)
     else:
-        return "Sorry, I am not sure what you mean.Go ahead and write the number of any query. 😃✨ <br> 1.list of important documents you will be needing to complete your admission process.</br>2.Frequently asked questions regarding admission </br>3.Brochure of top colleges in Mumbai</br>4.Cut-Off of Different Colleges</br>"
+        return "Sorry, I am not sure what you mean.Go ahead and write the number of any query. 😃✨ <br> 1.list of important documents you will be needing to complete your admission process.</br>2.Frequently asked questions regarding admission </br>3.Scholarship related info</br>4.Top Colleges</br>"
+
+@app.route('/api')
+def api():
+    if google_auth.is_logged_in():
+        drive_fields = "files(id,name,mimeType,createdTime,modifiedTime,shared,webContentLink)"
+        items = google_drive.build_drive_api_v3().list(
+                        pageSize=20, orderBy="folder", q='trashed=false',
+                        fields=drive_fields
+                    ).execute()
+
+        return flask.render_template('list.html', files=items['files'], user_info=google_auth.get_user_info())
+
+    else:
+        return flask.render_template('login1.html', login_url='/google/login')
 
 
 
-if __name__ == "__main__":
-    app.run()
+
+if __name__ == '__main__':
+    app.run(debug=True, host='localhost', port=5000)
 
 
 
