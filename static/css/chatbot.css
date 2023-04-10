@@ -1,109 +1,193 @@
 /* Set font family and size for the entire page */
 body {
-    font-family: Arial, sans-serif;
-    font-size: 20px;
-    background-color: rgb(30, 30, 81);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  background-color: rgb(18, 18, 71);
+}
+/* Style the navbar */
+nav {
+  height: 50px;
+  width: 650px;
+  margin: 0 auto; /* Center horizontally */
+  background-color: black;
+  border-bottom: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+/* Style the navbar container */
+.nav-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-container .logo {
+  display: flex;
+  align-items: center;
+  color: #ccc;
+}
+
+.nav-container .logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.nav-container .logo span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+
+
+/* Style the chatbox container */
+#chatbox {
+  height: 600px; /* Decrease height */
+  width: 600px;
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll; /* Add scrollbar */
+}
+
+/* Add some padding to the top of the chatbox container */
+#chatbox:before {
+  content: "";
+  display: block;
+  height: 20px;
+}
+
+/* Add a header to the chatbox container */
+#chatbox h2 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style the chat input container */
+#userInput {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto 0;
+  padding: 10px;
+  border: none;
+  border-radius: 50px;
+  background-color: #F8F8F8;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the text input field */
+#textInput {
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+/* Style the user message */
+.userText {
+  text-align: right;
+  margin-bottom: 10px;
+  animation: fadeInRight 0.5s ease; /* Add animation effect */
+}
+
+.userText span {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #3498db;
+  color: #fff;
+}
+
+.fa-message-bot {
+  font-size: 24px;
+  color: black;
+  margin-right: 10px;
+}
+
+/* Style the bot message */
+.botText {
+  text-align: left;
+  margin-bottom: 10px;
+  animation: fadeInLeft 0.5s ease; /* Add animation effect */
+}
+
+.botText span {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #f1c40f;
+  color: #fff;
+}
+
+/* Style the send button */
+#sendButton {
+  padding: 10px 20px;
+  background-color: #3CB371;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Style the send button on hover */
+#sendButton:hover {
+  background-color: #2E8B57;
+}
+
+/* Media query for screens with a maximum width of 768px */
+@media screen and (max-width: 768px) {
+  /* Set the navbar height to auto and remove the border radius */
+  nav {
+    height: auto;
+    border-radius: 0;
   }
   
-  /* Style the chatbox container */
-  #chatbox {
-    height: 800px; /* Increase height */
-    width: 700px;
-    margin: 0 auto; /* Center horizontally */
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    overflow-y: scroll; /* Add scrollbar */
-  }
-  
-  /* Add some padding to the top of the chatbox container */
-  #chatbox:before {
-    content: "";
-    display: block;
-    height: 30px;
-  }
-  
-  /* Add a header to the chatbox container */
-  #chatbox h2 {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the chat input container */
-  #userInput {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    display: flex;
+  /* Center the navbar container */
+  .nav-container {
     justify-content: center;
-    align-items: center;
   }
   
-  /* Style the text input field */
+  /* Set the logo font size to 20px */
+  .nav-container .logo span {
+    font-size: 20px;
+  }
+  
+  /* Decrease the chatbox height */
+  #chatbox {
+    height: 400px;
+  }
+  
+  /* Decrease the padding of the chatbox container */
+  #chatbox {
+    padding: 10px;
+  }
+  
+  /* Decrease the font size of the chat input field */
   #textInput {
-    width: 100%;
-    max-width: 400px;
-    border: none;
-    border-bottom: 2px solid #ccc;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    font-weight: bold; /* Increase font weight */
-    padding: 5px;
-    margin-right: 10px;
+    font-size: 14px;
   }
   
-  /* Style the user message */
-  .userText {
-    text-align: right;
-    margin-bottom: 10px;
-    animation: fadeInRight 0.5s ease; /* Add animation effect */
-  }
-  
-  .userText span {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #3498db;
-    color: #fff;
-  }
-  
-  /* Style the bot message */
-  .botText {
-    text-align: left;
-    margin-bottom: 10px;
-    animation: fadeInLeft 0.5s ease; /* Add animation effect */
-  }
-  
-  .botText span {
-    display: inline-block;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #f1c40f;
-    color: #fff;
-  }
-  
-  /* Style the send button */
+  /* Decrease the padding of the send button */
   #sendButton {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
   }
-  
-  /* Style the send button on hover */
-  #sendButton:hover {
-    background-color: #3e8e41;
-  }
-  
+}
