@@ -114,6 +114,14 @@ def dashboard():
         # redirect the user to the login page if they are not logged in
         return redirect(url_for('login.html'))
 
+@app.route('/logout')
+def logout():
+    # clear the session data
+    session.pop('user', None)
+
+    # redirect the user to the login page
+    return render_template('login.html')
+
 
 @app.route('/chatbot')
 def chatbot():
@@ -123,6 +131,9 @@ def chatbot():
 def calender():
     return render_template('calender.html')
 
+@app.route('/colleges')
+def colleges():
+    return render_template('colleges.html')
 
 
 
@@ -147,7 +158,8 @@ def get_bot_response():
 def api():
     if google_auth.is_logged_in():
         drive_fields = "files(id,name,mimeType,createdTime,modifiedTime,shared,webContentLink)"
-        items = google_drive.build_drive_api_v3().list(
+        drive_api = google_drive.build_drive_api_v3()
+        items = drive_api.files().list(
                         pageSize=20, orderBy="folder", q='trashed=false',
                         fields=drive_fields
                     ).execute()
@@ -156,6 +168,7 @@ def api():
 
     else:
         return flask.render_template('login1.html', login_url='/google/login')
+
 
 
 
